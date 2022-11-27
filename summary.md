@@ -206,9 +206,116 @@
        // const DateTime now2 = DateTime.now(); -> error, build time때 변수의 값을 모름
      }
      ```
-   
-   - 
-   
-   - df
 
+3. operator
+- 사칙연산
 
+```dart
+void main() {
+  double number = 2;
+  print(number);
+  print(number + 2);
+  print(number - 2);
+  print(number * 2);
+  print(number / 2);
+
+  print('-------------');
+  print(number % 3); //나눈 나머지
+
+  print('-------------');
+  //+1 한 값 재저장
+  number++;
+  print(number);
+
+  //-1 한 값 재저장
+  number--;
+  print(number);
+
+  //원하는 값 더하기, 빼기, 곱하기, 나누기해서 재저장
+  number += 3;
+  print(number);
+
+  number -= 2;
+  print(number);
+
+  number *= 5;
+  print(number);
+
+  number /= 3;
+  print(number);
+}
+```
+
+- null 조건
+
+```dart
+void main() {
+  double? number = 4.0;
+
+  print(number);
+
+  number = 2.0;
+
+  print(number);
+
+  number = null;
+
+  print(number);
+
+  //null일때 값을 오른쪽 값으로 바꿈
+  number ??= 3.0;
+
+  print(number);
+}
+```
+
+- 비교연산자
+
+```dart
+void main() {
+  int number1 = 1;
+  int number2 = 2;
+  print(number1 > number2); // false
+  print(number1 < number2); //true
+  print(number1 >= number2); // false
+  print(number1 <= number2); //true
+  print(number1 == number2); //false
+  print(number1 != number2); //true
+}
+```
+
+- type 비교 연산자
+
+```dart
+void main() {
+  int number1 = 1;
+
+  print(number1 is int); //true
+  print(number1 is String); //false
+  print(number1 is! int); // false
+  print(number1 is! String); //true
+}
+```
+
+- 논리 연산자
+
+```dart
+void main() {
+  //&&(and) : 둘다 만족해야 true
+  bool result = 12 > 10 && 1 > 0;
+  print(result); //true
+
+  bool result2 = 12 > 10 && 0 > 1;
+  print(result2); //false
+
+  //||(or): 둘 중 하나만 만족해도 true
+  bool result3 = 12 > 10 || 1 > 0;
+  print(result3); // true
+
+  bool result4 = 12 > 10 || 0 > 1;
+  print(result4); //true
+
+  bool result5 = 10 > 12 || 0 > 1;
+  print(result5); //false
+}
+```
