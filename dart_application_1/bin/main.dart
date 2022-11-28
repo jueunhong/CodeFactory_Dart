@@ -1,18 +1,45 @@
 void main() {
-  //&&(and) : 둘다 만족해야 true
-  bool result = 12 > 10 && 1 > 0;
-  print(result); //true
+  //Map
+  //Key / Value 짝을 이뤄서 값
+  Map<String, String> dictionary = {
+    'Harry Potter': '해리포터',
+    'Ron Weasley': '론 위즐리',
+    'Hermione Granger': '헤르미온느 그레인저'
+  };
 
-  bool result2 = 12 > 10 && 0 > 1;
-  print(result2); //false
+  print(dictionary);
 
-  //||(or): 둘 중 하나만 만족해도 true
-  bool result3 = 12 > 10 || 1 > 0;
-  print(result3); // true
+  Map<String, bool> isHarryPotter = {
+    'Harry Potter': true,
+    'Ron Weasley': true,
+    'Ironman': false
+  };
 
-  bool result4 = 12 > 10 || 0 > 1;
-  print(result4); //true
+  print(isHarryPotter);
 
-  bool result5 = 10 > 12 || 0 > 1;
-  print(result5); //false
+  //추가
+  isHarryPotter.addAll({'Spiderman': false});
+
+  isHarryPotter['Hulk'] = false;
+
+  print(isHarryPotter);
+
+  //value값 가져오기
+  print(isHarryPotter['Ironman']);
+
+  //value값 바꾸기
+
+  isHarryPotter['Spiderman'] = true;
+
+  print(isHarryPotter);
+
+  //삭제
+
+  isHarryPotter.remove('Harry Potter');
+
+  print(isHarryPotter);
+
+  //key 값만 , value값만 따로 가져오기
+  print(isHarryPotter.keys);
+  print(isHarryPotter.values);
 }
