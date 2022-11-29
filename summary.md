@@ -336,7 +336,7 @@ void main() {
      //0부터 시작
      print(blackPink[0]);
      print(numbers[1]);
-     
+   
    }
    ```
 - index로 원하는 순서의 요소 가져오기
@@ -437,6 +437,163 @@ void main() {
 
   List<String> blackPink = ['지수'];
   print(blackPink.contains('지수'));
+}
+```
+
+7. if문
+
+```dart
+void main() {
+  //if 문
+  int number = 4;
+
+  if (number % 3 == 0) {
+    print('나머지가 0입니다.');
+  } else if (number % 3 == 1) {
+    print('나머지가 1입니다.');
+  } else {
+    print('나머지가 2입니다.');
+  }
+}
+```
+
+8. switch문
+
+```dart
+void main() {
+  //switch 문
+  int number = 4;
+
+  switch (number % 3) {
+    case 0:
+      print('나머지가 0입니다.');
+      break;
+    case 1:
+      print('나머지가 1입니다.');
+      break;
+    default:
+      print('나머지가 2입니다.');
+      break;
+  }
+}
+```
+
+9. for loop
+
+```dart
+void main() {
+  //반복문 loop
+  //for loop
+  int total = 0;
+
+  List<int> nums = [1, 2, 3, 4, 5, 6];
+
+  for (int i = 0; i < nums.length; i++) {
+    total += nums[i];
+  }
+  print(total);
+
+  total = 0;
+
+  for (int num in nums) {
+    total += num;
+  }
+  print(total);
+}
+```
+
+10. while loop
+
+```dart
+void main() {
+  //반복문 loop
+  //while loop
+
+  int total = 0;
+  while (total < 10) {
+    total += 1;
+  }
+  print(total);
+
+  //do while
+  total = 0;
+  do {
+    total += 1;
+  } while (total < 10);
+
+  print(total);
+}
+```
+
+- break(loop전체 종료)
+
+```dart
+void main() {
+  //반복문 loop
+  //while loop
+  int total = 0;
+
+  while (total < 10) {
+    total += 1;
+
+    if (total == 5) {
+      break;
+    }
+  }
+  print(total);
+
+  total = 0;
+
+  for (int i = 0; i < 10; i++) {
+    total += 1;
+    if (total == 5) {
+      break;
+    }
+  }
+
+  print(total);
+}
+```
+
+- continue (현재 loop만 종료하고 다른 loop)
+
+```dart
+void main() {
+  for (int i = 0; i < 10; i++) {
+    if (i == 5) {
+      continue;
+    }
+    print(i);
+  }
+}
+```
+
+11. enum 상수 열거형
+- 한정된 상수 값 집합을 나타냄
+
+- 직관적으로 존재하는 값들을 확인할 수 있음
+
+- 선언한 enum 타입의 상수값들을 인덱스로 관리할 수 있음
+
+- 전체값은 .values
+
+```dart
+enum Status {
+  approved, //승인
+  pending, //대기
+  rejected, //거절
+}
+
+void main() {
+  Status status = Status.pending;
+
+  if (status == Status.approved) {
+    print('승인입니다.');
+  } else if (status == Status.pending) {
+    print('대기입니다.');
+  } else {
+    print('거절입니다.');
+  }
 }
 ```
 
