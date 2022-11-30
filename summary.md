@@ -598,3 +598,210 @@ void main() {
 ```
 
 
+
+12. 함수
+
+```dart
+void main() {
+  addNumbers(1, 2, 30);
+  addNumbers(10, 20, 30);
+}
+//세개의 숫자(x, y, z)를 더하고 짝수인지 홀수인지 알려주는 함수
+//parameter / argument - 매개변수
+//positional parameter - 순서가 중요한 파라미터
+
+addNumbers(int x, int y, int z) {
+  int sum = x + y + z;
+  if (sum % 2 == 0) {
+    print('$x, $y, $z 의 합 $sum은 짝수입니다.');
+  } else {
+    print('$x, $y, $z 의 합 $sum은 홀수입니다.');
+  }
+}
+```
+
+- optional parameter - 없어도 되는 파라미터
+  
+  - [ ]로 표시
+  
+  - null값도 들어갈 수 있음 -> 타입 앞에 ?를 붙이면 -> 뒤에 식에서 error -> 해결) 기본값을 설정해줌
+
+```dart
+void main() {
+  addNumbers(1);
+  addNumbers(10);
+}
+//세개의 숫자(x, y, z)를 더하고 짝수인지 홀수인지 알려주는 함수
+//parameter / argument - 매개변수
+//positional parameter - 순서가 중요한 파라미터
+//optional parameter - 없어도 되는 파라미터
+
+addNumbers(int x, [int y = 20, int z = 30]) {
+  int sum = x + y + z;
+  if (sum % 2 == 0) {
+    print('$x, $y, $z 의 합 $sum은 짝수입니다.');
+  } else {
+    print('$x, $y, $z 의 합 $sum은 홀수입니다.');
+  }
+}
+```
+
+- named parameter - 이름이 있는 파라미터 (순서가 중요하지 않다.)
+
+```dart
+void main() {
+  addNumbers(y: 2, x: 1, z: 3);
+  addNumbers(x: 10, y: 20, z: 30);
+}
+//세개의 숫자(x, y, z)를 더하고 짝수인지 홀수인지 알려주는 함수
+//parameter / argument - 매개변수
+//positional parameter - 순서가 중요한 파라미터
+//optional parameter - 없어도 되는 파라미터
+//named parameter - 이름이 있는 파라미터 (순서가 중요하지 않다.)
+
+addNumbers({
+  required int x,
+  required int y,
+  required int z,
+}) {
+  print('x: $x');
+  print('y: $y');
+  print('z: $z');
+  int sum = x + y + z;
+  if (sum % 2 == 0) {
+    print('합 $sum은 짝수입니다.');
+  } else {
+    print('합 $sum은 홀수입니다.');
+  }
+}
+
+```
+
+- named parameter에 required을 붙이지 않으면 optional parametre로 사용가능 -> 기본값 설정
+
+```dart
+void main() {
+  addNumbers(y: 2, x: 1, z: 3);
+  addNumbers(x: 10, y: 20, z: 30);
+}
+//세개의 숫자(x, y, z)를 더하고 짝수인지 홀수인지 알려주는 함수
+//parameter / argument - 매개변수
+//positional parameter - 순서가 중요한 파라미터
+//optional parameter - 없어도 되는 파라미터
+//named parameter - 이름이 있는 파라미터 (순서가 중요하지 않다.)
+
+addNumbers({
+  required int x,
+  required int y,
+  int z = 10, // named parameter는 기본값이 optional
+}) {
+  print('x: $x');
+  print('y: $y');
+  print('z: $z');
+  int sum = x + y + z;
+  if (sum % 2 == 0) {
+    print('합 $sum은 짝수입니다.');
+  } else {
+    print('합 $sum은 홀수입니다.');
+  }
+}
+```
+
+- void란 뭐냐?
+  
+  - return이 없는 함수
+
+- return값을 받으려면 -> 함수를 선언할때 함수명 앞에 return할 값의 type을 써줌
+
+```dart
+void main() {
+  int result = addNumbers(1, y: 2, z: 3);
+  int result2 = addNumbers(10, y: 20, z: 30);
+
+  print('result: $result');
+  print('result2: $result2');
+}
+//세개의 숫자(x, y, z)를 더하고 짝수인지 홀수인지 알려주는 함수
+//parameter / argument - 매개변수
+//positional parameter - 순서가 중요한 파라미터
+//optional parameter - 없어도 되는 파라미터
+//named parameter - 이름이 있는 파라미터 (순서가 중요하지 않다.)
+
+int addNumbers(
+  int x, {
+  required int y,
+  int z = 10, // positional parameter와 named paramter 혼합
+}) {
+  print('x: $x');
+  print('y: $y');
+  print('z: $z');
+  int sum = x + y + z;
+  if (sum % 2 == 0) {
+    print('합 $sum은 짝수입니다.');
+  } else {
+    print('합 $sum은 홀수입니다.');
+  }
+
+  return sum;
+}
+```
+
+- arrow 함수 (리턴)
+
+```dart
+void main() {
+  int result = addNumbers(1, y: 2, z: 3);
+  int result2 = addNumbers(10, y: 20, z: 30);
+
+  print('result: $result');
+  print('result2: $result2');
+}
+//세개의 숫자(x, y, z)를 더하고 짝수인지 홀수인지 알려주는 함수
+//parameter / argument - 매개변수
+//positional parameter - 순서가 중요한 파라미터
+//optional parameter - 없어도 되는 파라미터
+//named parameter - 이름이 있는 파라미터 (순서가 중요하지 않다.)
+
+int addNumbers(
+  int x, {
+  required int y,
+  int z = 10,
+}) => x + y + z;
+```
+
+
+
+13. typedef
+    
+    - 함수를 시그니처화 해서 여러 함수를 유용하게 다룰 수 있음 
+    
+    - 시그니처 선언한 타입의 변수에 함수들을 할당해서 다르게 할당만 하면 다른 함수를 쓸 수 있다.
+    
+    ```dart
+    void main() {
+      Operation operation = add; //변수 선언 후 함수 할당, type은 typedef에 선언한 Operation
+    
+      int result = operation(10, 20, 30);
+      print(result);
+    
+      operation = substract;
+    
+      int result2 = operation(30, 10, 10);
+      print(result2);
+    
+      int result3 = calculate(40, 20, 10, add);
+    
+      print(result3);
+    }
+    //시그니처 
+    typedef Operation = int Function(int x, int y, int z);
+    
+    //더하기
+    int add(int x, int y, int z) => x + y + z;
+    
+    //빼기
+    int substract(int x, int y, int z) => x - y - z;
+    
+    //계산
+    int calculate(int x, int y, int z, Operation operation) => operation(x, y, z);
+    ```
