@@ -1,27 +1,28 @@
 void main() {
-  Operation operation = add;
+  Idol blackPink = Idol('블랙핑크', ['지수', '제니', '리사', '로제']);
+  print(blackPink.members);
+  blackPink.sayHello();
+  blackPink.introduce();
 
-  int result = operation(10, 20, 30);
-  print(result);
-
-  operation = substract;
-
-  int result2 = operation(30, 10, 10);
-  print(result2);
-
-  int result3 = calculate(40, 20, 10, add);
-
-  print(result3);
+  Idol bts = Idol('BTS', ['RM', '진', '슈가', '정국', '제이홉', '슈가']);
+  print(bts.members);
+  bts.sayHello();
+  bts.introduce();
 }
 
-//시그니처
-typedef Operation = int Function(int x, int y, int z);
+//Idol class
+//constructor 생성자
+class Idol {
+  String name;
+  List<String> members;
 
-//더하기
-int add(int x, int y, int z) => x + y + z;
+  Idol(this.name, this.members);
 
-//빼기
-int substract(int x, int y, int z) => x - y - z;
+  void sayHello() {
+    print('안녕하세요 ${this.name}입니다.');
+  }
 
-//계산
-int calculate(int x, int y, int z, Operation operation) => operation(x, y, z);
+  void introduce() {
+    print('저희 멤버는 ${this.members}입니다.');
+  }
+}

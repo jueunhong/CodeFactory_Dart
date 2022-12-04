@@ -597,8 +597,6 @@ void main() {
 }
 ```
 
-
-
 12. 함수
 
 ```dart
@@ -769,8 +767,6 @@ int addNumbers(
 }) => x + y + z;
 ```
 
-
-
 13. typedef
     
     - 함수를 시그니처화 해서 여러 함수를 유용하게 다룰 수 있음 
@@ -805,3 +801,75 @@ int addNumbers(
     //계산
     int calculate(int x, int y, int z, Operation operation) => operation(x, y, z);
     ```
+
+14.객체 지향 프로그래밍
+
+- Class: 정의, Instance: 실제 내용 구현
+
+- constructor생성자를 통해 외부에서 class 의 변수들에 값을 바꿀 수 있음
+
+```dart
+void main() {
+  Idol blackPink = Idol('블랙핑크', ['지수', '제니', '리사', '로제']);
+  print(blackPink.members);
+  blackPink.sayHello();
+  blackPink.introduce();
+
+  Idol bts = Idol('BTS', ['RM', '진', '슈가', '정국', '제이홉', '슈가']);
+  print(bts.members);
+  bts.sayHello();
+  bts.introduce();
+}
+
+//Idol class
+//constructor 생성자
+class Idol {
+  String name;
+  List<String> members;
+
+  Idol(String name, List<String> memebers)
+      : this.name = name,
+        this.members = memebers;
+
+  void sayHello() {
+    print('안녕하세요 ${this.name}입니다.');
+  }
+
+  void introduce() {
+    print('저희 멤버는 ${this.members}입니다.');
+  }
+}
+```
+
+- 조금 더 간결한 constructor
+
+```dart
+void main() {
+  Idol blackPink = Idol('블랙핑크', ['지수', '제니', '리사', '로제']);
+  print(blackPink.members);
+  blackPink.sayHello();
+  blackPink.introduce();
+
+  Idol bts = Idol('BTS', ['RM', '진', '슈가', '정국', '제이홉', '슈가']);
+  print(bts.members);
+  bts.sayHello();
+  bts.introduce();
+}
+
+//Idol class
+//constructor 생성자
+class Idol {
+  String name;
+  List<String> members;
+
+  Idol(this.name, this.members);
+
+  void sayHello() {
+    print('안녕하세요 ${this.name}입니다.');
+  }
+
+  void introduce() {
+    print('저희 멤버는 ${this.members}입니다.');
+  }
+}
+```
