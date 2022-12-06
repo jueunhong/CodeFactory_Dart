@@ -878,7 +878,7 @@ class Idol {
 
 ```dart
 void main() {
- 
+
   Idol bts = Idol.fromList([
     ['RM', '진', '슈가', '정국', '제이홉', '슈가'],
     'BTS'
@@ -974,7 +974,69 @@ class Idol {
     - final 변수로 지정하면 setter를 쓸 수 없음 -> 현재 많이는 안씀
   
   ```dart
+  void main() {
+    Idol blackPink = Idol('블랙핑크', ['지수', '제니', '리사', '로제']);
   
+    Idol bts = Idol.fromList([
+      ['RM', '진', '슈가', '정국', '제이홉', '슈가'],
+      'BTS'
+    ]);
+  
+    print(blackPink.firstMember);
+    print(bts.firstMember);
+  
+    blackPink.firstMember = '코드팩토리';
+    bts.firstMember = '아이언맨';
+  
+    print(blackPink.firstMember);
+    print(bts.firstMember);
+  }
+  
+  //Idol class
+  //getter / setter
+  //데이터를 가져올 때 / 데이터를 설정할 때
+  class Idol {
+    String name;
+    List<String> members;
+  
+    Idol(this.name, this.members);
+  
+    Idol.fromList(List values)
+        : this.members = values[0],
+          this.name = values[1];
+  
+    void sayHello() {
+      print('안녕하세요 ${this.name}입니다.');
+    }
+  
+    void introduce() {
+      print('저희 멤버는 ${this.members}입니다.');
+    }
+  
+    //getter
+    String get firstMember {
+      return this.members[0];
+    }
+  
+    //setter
+    set firstMember(String name) {
+      this.members[0] = name;
+    }
+  }
   ```
 
+- private 변수 , class, 함수
+  
+  - _Idol class -> 다른 파일에서 불러와서 사용할 수 없음
 
+- inheritance 상속
+  
+  - 부모 class의 모든 속성을 자식 class가 부여받는다.
+  
+  - 자식 class extends 부모 class
+  
+  - super : 부모 class의 constructor
+  
+  - 자식 class에서 부모 class로 속성 넘겨줄 수 없음
+  
+  

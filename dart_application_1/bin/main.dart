@@ -1,49 +1,69 @@
 void main() {
-  Idol blackPink = Idol('블랙핑크', ['지수', '제니', '리사', '로제']);
+  print('-----Idol----');
+  Idol apink = Idol(name: '에이핑크', membersCount: 5);
 
-  Idol bts = Idol.fromList([
-    ['RM', '진', '슈가', '정국', '제이홉', '슈가'],
-    'BTS'
-  ]);
+  apink.sayName();
+  apink.sayMembersCount();
 
-  print(blackPink.firstMember);
-  print(bts.firstMember);
+  print('-----BoyGroup----');
 
-  blackPink.firstMember = '코드팩토리';
-  bts.firstMember = '아이언맨';
+  BoyGroup bts = BoyGroup('BTS', 7);
+  bts.sayName();
+  bts.sayMembersCount();
+  bts.sayMale();
 
-  print(blackPink.firstMember);
-  print(bts.firstMember);
+  print('-----GirlGroup----');
+  GrilGroup redVelvet = GrilGroup('레드벨벳', 5);
+  redVelvet.sayName();
+  redVelvet.sayMembersCount();
+  redVelvet.sayFemale();
 }
 
-//Idol class
-//getter / setter
-//데이터를 가져올 때 / 데이터를 설정할 때
+//상속 - inheritance
+//상속을 받으면 부모 클래스의 모든 속성을 자식 클래스가 부여받는다.
+
 class Idol {
   String name;
-  List<String> members;
+  int membersCount;
 
-  Idol(this.name, this.members);
+  Idol({
+    required this.name,
+    required this.membersCount,
+  });
 
-  Idol.fromList(List values)
-      : this.members = values[0],
-        this.name = values[1];
-
-  void sayHello() {
-    print('안녕하세요 ${this.name}입니다.');
+  void sayName() {
+    print('저는 ${this.name}입니다.');
   }
 
-  void introduce() {
-    print('저희 멤버는 ${this.members}입니다.');
+  void sayMembersCount() {
+    print('${this.name}은 ${this.membersCount}명의 멤버가 있습니다.');
   }
+}
 
-  //getter
-  String get firstMember {
-    return this.members[0];
+class BoyGroup extends Idol {
+  BoyGroup(
+    String name,
+    int membersCount,
+  ) : super(
+          name: name,
+          membersCount: membersCount,
+        );
+
+  void sayMale() {
+    print('저는 남자 아이돌입니다.');
   }
+}
 
-  //setter
-  set firstMember(String name) {
-    this.members[0] = name;
+class GrilGroup extends Idol {
+  GrilGroup(
+    String name,
+    int membersCount,
+  ) : super(
+          name: name,
+          membersCount: membersCount,
+        );
+
+  void sayFemale() {
+    print('저는 여자 아이돌입니다.');
   }
 }
