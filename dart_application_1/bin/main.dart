@@ -1,69 +1,35 @@
 void main() {
-  print('-----Idol----');
-  Idol apink = Idol(name: '에이핑크', membersCount: 5);
+  TimesTwo tt = TimesTwo(2);
+  print(tt.calculate());
 
-  apink.sayName();
-  apink.sayMembersCount();
-
-  print('-----BoyGroup----');
-
-  BoyGroup bts = BoyGroup('BTS', 7);
-  bts.sayName();
-  bts.sayMembersCount();
-  bts.sayMale();
-
-  print('-----GirlGroup----');
-  GrilGroup redVelvet = GrilGroup('레드벨벳', 5);
-  redVelvet.sayName();
-  redVelvet.sayMembersCount();
-  redVelvet.sayFemale();
+  TimesFour tf = TimesFour(2);
+  print(tf.calculate());
 }
 
-//상속 - inheritance
-//상속을 받으면 부모 클래스의 모든 속성을 자식 클래스가 부여받는다.
+//method - function (class 내부에 있는 함수)
+//override - 덮어쓰다 (우선시하다)
 
-class Idol {
-  String name;
-  int membersCount;
+class TimesTwo {
+  final int number;
 
-  Idol({
-    required this.name,
-    required this.membersCount,
-  });
+  TimesTwo(
+    this.number,
+  );
 
-  void sayName() {
-    print('저는 ${this.name}입니다.');
-  }
-
-  void sayMembersCount() {
-    print('${this.name}은 ${this.membersCount}명의 멤버가 있습니다.');
+  //method
+  int calculate() {
+    return number * 2;
   }
 }
 
-class BoyGroup extends Idol {
-  BoyGroup(
-    String name,
-    int membersCount,
-  ) : super(
-          name: name,
-          membersCount: membersCount,
-        );
+class TimesFour extends TimesTwo {
+  TimesFour(
+    int number,
+  ) : super(number);
 
-  void sayMale() {
-    print('저는 남자 아이돌입니다.');
-  }
-}
-
-class GrilGroup extends Idol {
-  GrilGroup(
-    String name,
-    int membersCount,
-  ) : super(
-          name: name,
-          membersCount: membersCount,
-        );
-
-  void sayFemale() {
-    print('저는 여자 아이돌입니다.');
+  @override
+  int calculate() {
+    // return super.calculate() * 2;
+    return super.number * 4;
   }
 }
