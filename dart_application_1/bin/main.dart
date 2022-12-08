@@ -1,35 +1,27 @@
 void main() {
-  TimesTwo tt = TimesTwo(2);
-  print(tt.calculate());
+  Employee seulgi = Employee('슬기');
+  Employee chorong = Employee('초롱');
+  seulgi.printNameAndBuilding();
 
-  TimesFour tf = TimesFour(2);
-  print(tf.calculate());
+  Employee.building = '오투타워';
+  seulgi.printNameAndBuilding();
+  chorong.printNameAndBuilding();
 }
 
-//method - function (class 내부에 있는 함수)
-//override - 덮어쓰다 (우선시하다)
-
-class TimesTwo {
-  final int number;
-
-  TimesTwo(
-    this.number,
+class Employee {
+  //static 은 instance에 귀속되지 않고 class에 귀속된다.
+  //알바생이 일하고 있는 건물
+  static String? building;
+  //알바생 이름
+  final String name;
+  Employee(
+    this.name,
   );
-
-  //method
-  int calculate() {
-    return number * 2;
+  void printNameAndBuilding() {
+    print('제 이름은 $name 입니다. $building 건물에서 일하고 있습니다.');
   }
-}
 
-class TimesFour extends TimesTwo {
-  TimesFour(
-    int number,
-  ) : super(number);
-
-  @override
-  int calculate() {
-    // return super.calculate() * 2;
-    return super.number * 4;
+  static void printBuilding() {
+    print('저는 $building 에서 근무중입니다.');
   }
 }
