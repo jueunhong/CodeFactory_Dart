@@ -1122,48 +1122,50 @@ class Idol {
   
   ```
 
+```
+
 - method override
 
 ```dart
 void main() {
-  TimesTwo tt = TimesTwo(2);
-  print(tt.calculate());
+TimesTwo tt = TimesTwo(2);
+print(tt.calculate());
 
-  TimesFour tf = TimesFour(2);
-  print(tf.calculate());
+TimesFour tf = TimesFour(2);
+print(tf.calculate());
 }
 
 //method - function (class 내부에 있는 함수)
 //override - 덮어쓰다 (우선시하다)
 
 class TimesTwo {
-  final int number;
+final int number;
 
-  TimesTwo(
-    this.number,
-  );
+TimesTwo(
+  this.number,
+);
 
-  //method
-  int calculate() {
-    return number * 2;
-  }
+//method
+int calculate() {
+  return number * 2;
+}
 }
 
 class TimesFour extends TimesTwo {
-  TimesFour(
-    int number,
-  ) : super(number);
+TimesFour(
+  int number,
+) : super(number);
 
-  @override
-  int calculate() {
-    // return super.calculate() * 2;
-    return super.number * 4;
-  }
+@override
+int calculate() {
+  // return super.calculate() * 2;
+  return super.number * 4;
+}
 }
 
 ```
 
-- static 타
+- static 타입
   
   - instance에 귀속되지 않고, class에 귀속된다.
   
@@ -1195,6 +1197,50 @@ class Employee {
 
   static void printBuilding() {
     print('저는 $building 에서 근무중입니다.');
+  }
+}
+
+```
+
+- Interface
+  
+  - class가 꼭 가져야 하는 변수와 메소드를 지정해주는 역할을 한다. 
+  
+  - class처럼 선언한다. 그러나 instance화하는 것을 막을 수 있다. -> abstract 로 정의하면 됨. 
+  
+  - abstract로 정의했을 때 instance로 사용하는 것을 막고, 함수 body도 없앨 수 있다.
+
+```dart
+void main() {
+  BoyGroup bts = BoyGroup('방탄');
+  GirlGroup redVelvet = GirlGroup('레드벨벳');
+  bts.sayName();
+  redVelvet.sayName();
+}
+
+//interface
+abstract class IdolInterface {
+  String name;
+  IdolInterface(this.name);
+  void sayName();
+}
+
+class BoyGroup implements IdolInterface {
+  String name;
+
+  BoyGroup(this.name);
+  void sayName() {
+    print('제 이름은 $name입니다.');
+  }
+}
+
+class GirlGroup implements IdolInterface {
+  String name;
+
+  GirlGroup(this.name);
+
+  void sayName() {
+    print('제 이름은 $name입니다.');
   }
 }
 
