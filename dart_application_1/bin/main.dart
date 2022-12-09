@@ -1,32 +1,19 @@
 void main() {
-  BoyGroup bts = BoyGroup('방탄');
-  GirlGroup redVelvet = GirlGroup('레드벨벳');
-  bts.sayName();
-  redVelvet.sayName();
+  Lecture<String, String> lecture1 = Lecture('123', 'lecture1');
+  lecture1.printIdType();
+
+  Lecture<int, String> lecture2 = Lecture(123, 'lecture2');
+  lecture2.printIdType();
 }
+//generic 외부에서 타입을 받을 때 사용
 
-//interface
-abstract class IdolInterface {
-  String name;
-  IdolInterface(this.name);
-  void sayName();
-}
+class Lecture<T, X> {
+  final T id;
+  final X name;
 
-class BoyGroup implements IdolInterface {
-  String name;
+  Lecture(this.id, this.name);
 
-  BoyGroup(this.name);
-  void sayName() {
-    print('제 이름은 $name입니다.');
-  }
-}
-
-class GirlGroup implements IdolInterface {
-  String name;
-
-  GirlGroup(this.name);
-
-  void sayName() {
-    print('제 이름은 $name입니다.');
+  void printIdType() {
+    print(id.runtimeType);
   }
 }
