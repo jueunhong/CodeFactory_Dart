@@ -1,19 +1,18 @@
 void main() {
-  Lecture<String, String> lecture1 = Lecture('123', 'lecture1');
-  lecture1.printIdType();
+  List<String> blackPink = ['로제', '지수', '리사', '제니'];
 
-  Lecture<int, String> lecture2 = Lecture(123, 'lecture2');
-  lecture2.printIdType();
-}
-//generic 외부에서 타입을 받을 때 사용
+  final newBlackPink = blackPink.map((x) {
+    return '블랙핑크 $x';
+  });
 
-class Lecture<T, X> {
-  final T id;
-  final X name;
+  print(blackPink);
+  print(newBlackPink.toList());
 
-  Lecture(this.id, this.name);
+  final newBlackPink2 = blackPink.map((x) => '블랙핑크 new $x');
+  print(newBlackPink2.toList());
 
-  void printIdType() {
-    print(id.runtimeType);
-  }
+  //[1.jpg 3.jpg 5.jpg 7.jpg 9.jpg]
+  String number = '13579';
+  final parsed = number.split('').map((x) => '$x.jpg').toList();
+  print(parsed);
 }

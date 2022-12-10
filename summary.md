@@ -1122,8 +1122,6 @@ class Idol {
   
   ```
 
-```
-
 - method override
 
 ```dart
@@ -1276,3 +1274,53 @@ class Lecture<T> {
 ```
 
 - 모든 class는 Object를 상속한다.
+
+
+
+15. 함수형 프로그래밍
+- 형 변환
+
+```dart
+void main() {
+  List<String> blackPink = ['로제', '지수', '리사', '제니', '제니'];
+  print(blackPink);
+  print(blackPink.asMap());
+  print(blackPink.toSet());
+
+  Map blackPinkMap = blackPink.asMap();
+
+  print(blackPinkMap.keys.toList());
+  print(blackPinkMap.values.toList());
+
+  Set blackPinkSet = Set.from(blackPink);
+  print(blackPinkSet.toList());
+}
+```
+
+- List mapping
+  
+  - list 요소 하나씩 return해서 새로운 List 만듦
+  
+  ```dart
+  void main() {
+    List<String> blackPink = ['로제', '지수', '리사', '제니'];
+  
+    final newBlackPink = blackPink.map((x) {
+      return '블랙핑크 $x';
+    });
+  
+    print(blackPink);
+    print(newBlackPink.toList());
+  
+    final newBlackPink2 = blackPink.map((x) => '블랙핑크 new $x');
+    print(newBlackPink2.toList());
+  
+    //[1.jpg 3.jpg 5.jpg 7.jpg 9.jpg]
+    String number = '13579';
+    final parsed = number.split('').map((x) => '$x.jpg').toList();
+    print(parsed);
+  }oList());
+  }
+  ```
+
+
