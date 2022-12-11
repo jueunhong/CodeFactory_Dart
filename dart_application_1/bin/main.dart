@@ -1,18 +1,25 @@
 void main() {
-  List<String> blackPink = ['로제', '지수', '리사', '제니'];
+  List<Map<String, String>> people = [
+    {
+      'name': '로제',
+      'group': '블랙핑크',
+    },
+    {
+      'name': '지수',
+      'group': '블랙핑크',
+    },
+    {
+      'name': 'RM',
+      'group': 'BTS',
+    },
+    {
+      'name': '조이',
+      'group': '레드벨벳',
+    }
+  ];
 
-  final newBlackPink = blackPink.map((x) {
-    return '블랙핑크 $x';
-  });
-
+  final blackPink = people.where((map) => map['group'] == '블랙핑크');
+  final BTS = people.where((m) => m['group'] == 'BTS');
   print(blackPink);
-  print(newBlackPink.toList());
-
-  final newBlackPink2 = blackPink.map((x) => '블랙핑크 new $x');
-  print(newBlackPink2.toList());
-
-  //[1.jpg 3.jpg 5.jpg 7.jpg 9.jpg]
-  String number = '13579';
-  final parsed = number.split('').map((x) => '$x.jpg').toList();
-  print(parsed);
+  print(BTS);
 }

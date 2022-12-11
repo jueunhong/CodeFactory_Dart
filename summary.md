@@ -1122,6 +1122,8 @@ class Idol {
   
   ```
 
+```
+
 - method override
 
 ```dart
@@ -1140,24 +1142,24 @@ class TimesTwo {
 final int number;
 
 TimesTwo(
-  this.number,
+this.number,
 );
 
 //method
 int calculate() {
-  return number * 2;
+return number * 2;
 }
 }
 
 class TimesFour extends TimesTwo {
 TimesFour(
-  int number,
+int number,
 ) : super(number);
 
 @override
 int calculate() {
-  // return super.calculate() * 2;
-  return super.number * 4;
+// return super.calculate() * 2;
+return super.number * 4;
 }
 }
 
@@ -1274,9 +1276,8 @@ class Lecture<T> {
 ```
 
 - 모든 class는 Object를 상속한다.
-
-
-
+  
+  
 15. 함수형 프로그래밍
 - 형 변환
 
@@ -1323,4 +1324,73 @@ void main() {
   }
   ```
 
+- map mapping
+  
+  - key, value값만 mapping도 가능
 
+```dart
+void main() {
+  Map<String, String> harryPotter = {
+    'Harry Potter': '해리포터',
+    'Ron Weasley': '론 위즐리',
+    'Herimione Granger': '헤르미온느 그레인저'
+  };
+
+  final result = harryPotter.map((key, value) =>
+      MapEntry('Harry Potter Character $key', '해리포터 캐릭터 $value'));
+
+  print(harryPotter);
+
+  print(result);
+
+  final keys = harryPotter.keys.map((e) => 'HPC $e').toList();
+  print(keys);
+}t(result);
+}
+```
+
+- Set mapping
+
+```dart
+void main() {
+  Set blackPink = {'로제', '지수', '제니', '리사'};
+
+  final newSet = blackPink.map((e) => '블랙핑크 $e').toSet();
+  print(newSet);
+}
+```
+
+
+
+- Where
+  
+  - true인 요소만 남김
+
+```dart
+void main() {
+  List<Map<String, String>> people = [
+    {
+      'name': '로제',
+      'group': '블랙핑크',
+    },
+    {
+      'name': '지수',
+      'group': '블랙핑크',
+    },
+    {
+      'name': 'RM',
+      'group': 'BTS',
+    },
+    {
+      'name': '조이',
+      'group': '레드벨벳',
+    }
+  ];
+
+  final blackPink = people.where((map) => map['group'] == '블랙핑크');
+  final BTS = people.where((m) => m['group'] == 'BTS');
+  print(blackPink);
+  print(BTS);
+});
+}
+```
