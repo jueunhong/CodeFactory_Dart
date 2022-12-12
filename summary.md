@@ -1124,6 +1124,8 @@ class Idol {
 
 ```
 
+```
+
 - method override
 
 ```dart
@@ -1276,8 +1278,6 @@ class Lecture<T> {
 ```
 
 - 모든 class는 Object를 상속한다.
-  
-  
 15. 함수형 프로그래밍
 - 형 변환
 
@@ -1360,8 +1360,6 @@ void main() {
 }
 ```
 
-
-
 - Where
   
   - true인 요소만 남김
@@ -1394,3 +1392,31 @@ void main() {
 });
 }
 ```
+
+- reduce
+  
+  - reduce((prev, next) => ())
+  
+  - prev가 return 한 결과로 계속 업데이트 됨
+  
+  - List의 구성요소와 같은 type만 return할 수 있음
+
+```dart
+void main() {
+  List<int> numbers = [1, 3, 5, 7, 9];
+
+  final result = numbers.reduce((prev, next) => prev + next);
+  print(result);
+
+  List<String> words = [
+    '안녕하세요 ',
+    '저는 ',
+    '코드팩토리입니다. ',
+  ];
+
+  final sentence = words.reduce((value, element) => value + element);
+  print(sentence);
+}
+```
+
+

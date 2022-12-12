@@ -1,25 +1,15 @@
 void main() {
-  List<Map<String, String>> people = [
-    {
-      'name': '로제',
-      'group': '블랙핑크',
-    },
-    {
-      'name': '지수',
-      'group': '블랙핑크',
-    },
-    {
-      'name': 'RM',
-      'group': 'BTS',
-    },
-    {
-      'name': '조이',
-      'group': '레드벨벳',
-    }
+  List<int> numbers = [1, 3, 5, 7, 9];
+
+  final result = numbers.reduce((prev, next) => prev + next);
+  print(result);
+
+  List<String> words = [
+    '안녕하세요 ',
+    '저는 ',
+    '코드팩토리입니다. ',
   ];
 
-  final blackPink = people.where((map) => map['group'] == '블랙핑크');
-  final BTS = people.where((m) => m['group'] == 'BTS');
-  print(blackPink);
-  print(BTS);
+  final sentence = words.reduce((value, element) => value + element);
+  print(sentence);
 }
