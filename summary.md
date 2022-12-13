@@ -1419,4 +1419,27 @@ void main() {
 }
 ```
 
+- fold
+  
+  - reduce와 비슷한 구조이지만, reduce의 한계를 보완
+  
+  - return할 값의 type과 처음 들어갈 값을 지정할 수 있음
 
+```dart
+void main() {
+  List<int> numbers = [1, 3, 5, 7, 9];
+  final sum = numbers.fold<int>(
+      0, (previousValue, element) => (previousValue + element));
+  print(sum);
+
+  List<String> words = ['안녕하세요 ', '저는 ', '코드팩토리입니다.'];
+
+  final sentence = words.fold<String>(
+      '', (previousValue, element) => previousValue + element);
+  print(sentence);
+
+  final count = words.fold<int>(
+      0, (previousValue, element) => previousValue + element.length);
+  print(count);
+}
+```
