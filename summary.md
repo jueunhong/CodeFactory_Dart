@@ -1443,3 +1443,24 @@ void main() {
   print(count);
 }
 ```
+
+- cascading
+
+```dart
+void main() {
+  List<int> even = [2, 4, 6, 8];
+
+  List<int> odd = [
+    1,
+    3,
+    5,
+    7,
+  ];
+  //cascading operator
+  //...
+  print([...even, ...odd]);
+  print(even == [...even]); //false
+}
+```
+
+- List 안 map 을 class로 변환 -> 구조화 가능, 변경되지 않도록
