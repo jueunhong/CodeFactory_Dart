@@ -1464,3 +1464,27 @@ void main() {
 ```
 
 - List 안 map 을 class로 변환 -> 구조화 가능, 변경되지 않도록
+
+
+
+16. Async Programming
+
+- Future
+  - 미래에 받아올 값
+  - async로 programming하도록 해줌
+
+```dart
+//Future - 미래
+  //미래에 받아올 값
+  Future<String> name = Future.value('코드팩토리');
+  Future<int> number = Future.value(1);
+  Future<bool> isTrue = Future.value(true);
+
+//2개의 파라미터
+  //1번 파라미터 - 지연할 기간 Duration
+  //2번 파라미터 - 지연 시간이 지난 후 실행할 함수
+  Future.delayed(Duration(seconds: 2), () {
+    print('Delay 끝');
+  });
+```
+
